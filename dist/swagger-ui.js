@@ -1208,6 +1208,17 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
     SwaggerUi.prototype.initialize = function(options) {
       var _this = this;
+      var re = /.*[?&]baseUri=([^&]+).*/g
+      var search = window.location.search;
+      var match = null;
+      var url = null;
+      if (search) {
+        match = re.exec(search);
+        if (match) {
+          url = match[1];
+        }
+      }
+
       if (options == null) {
         options = {};
       }
@@ -1231,6 +1242,10 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
       this.headerView = new HeaderView({
         el: $('#header')
       });
+   	  if (url) {
+          console.log("URL is: " + url);
+          return _this.updateSwaggerUi({"url": url});
+   	  }
       return this.headerView.on('update-swagger-ui', function(data) {
         return _this.updateSwaggerUi(data);
       });
