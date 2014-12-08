@@ -1412,7 +1412,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
       var resource, _i, _len, _ref3;
       $(this.el).html(Handlebars.templates.main(this.model));
       _ref3 = this.model.apisArray;
-      for (_i = 0, _len = _ref3.length; _i < _len; _i++) {
+      for (_i = 0, _len = _ref3 ? _ref3.length : 0; _i < _len; _i++) {
         resource = _ref3[_i];
         this.addResource(resource);
       }
