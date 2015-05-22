@@ -21,15 +21,16 @@ class MainView extends Backbone.View
 
     resources = {}
     counter = 0
-    for resource in @model.apisArray
-      id = resource.name
-      while typeof resources[id] isnt 'undefined'
-        id = id + "_" + counter
-        counter += 1
-      resource.id = id
-      resources[id] = resource
-      @addResource resource
-    @
+    if (@model.apisArray)
+      for resource in @model.apisArray
+        id = resource.name
+        while typeof resources[id] isnt 'undefined'
+          id = id + "_" + counter
+          counter += 1
+        resource.id = id
+        resources[id] = resource
+        @addResource resource
+      @
 
   addResource: (resource) ->
     # Render a resource and add it to resources li
