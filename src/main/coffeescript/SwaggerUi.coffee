@@ -11,6 +11,18 @@ class SwaggerUi extends Backbone.Router
 
   # SwaggerUi accepts all the same options as SwaggerApi
   initialize: (options={}) ->
+    # check if URL of API is passed as parameter
+    re = /.*[?&]baseUri=([^&]+).*/g
+    search = window.location.search
+    match = null
+    url = null
+    if (search)
+      match = re.exec(search)
+      if (match)
+        url = match[1]
+    if (url)
+      options.url = url
+
     # Allow dom_id to be overridden
     if options.dom_id?
       @dom_id = options.dom_id

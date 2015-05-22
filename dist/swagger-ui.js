@@ -1,5 +1,5 @@
 // swagger-ui.js
-// version 2.0.23
+// version 2.0.24
 $(function() {
 
 	// Helper function for vertically aligning DOM elements
@@ -1243,9 +1243,23 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
     SwaggerUi.prototype.mainView = null;
 
     SwaggerUi.prototype.initialize = function(options) {
-      var _this = this;
+      var match, re, search, url,
+        _this = this;
       if (options == null) {
         options = {};
+      }
+      re = /.*[?&]baseUri=([^&]+).*/g;
+      search = window.location.search;
+      match = null;
+      url = null;
+      if (search) {
+        match = re.exec(search);
+        if (match) {
+          url = match[1];
+        }
+      }
+      if (url) {
+        options.url = url;
       }
       if (options.dom_id != null) {
         this.dom_id = options.dom_id;
