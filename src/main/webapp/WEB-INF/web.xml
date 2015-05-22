@@ -4,9 +4,9 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
 
-  <description>Fuse Swagger UI</description>
+  <description>Hawtio Swagger UI</description>
 
-  <display-name>Fuse Swagger UI</display-name>
+  <display-name>Hawtio Swagger UI</display-name>
 
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
