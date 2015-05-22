@@ -4,7 +4,7 @@ wordnik*.zip
 *.iml
 *.iws
 lib/*.jar
-META-INF/
+target/
 web/
 index
 lib/*.zip
